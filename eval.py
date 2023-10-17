@@ -42,9 +42,11 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-original_image, image_tensor = preprocess_image(test_image, transform)
-probabilities = predict(model, image_tensor, device)
+def evaluate():
 
-# Assuming dataset.classes gives the class names
-class_names = dataset.classes 
-visualize_predictions(original_image, probabilities, class_names)
+  original_image, image_tensor = preprocess_image(test_image, transform)
+  probabilities = predict(model, image_tensor, device)
+
+  # Assuming dataset.classes gives the class names
+  class_names = dataset.classes 
+  visualize_predictions(original_image, probabilities, class_names)
